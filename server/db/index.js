@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const createTables = require('./config');
+
 const Promise = require('bluebird');
 const database = 'greenfield';
 
