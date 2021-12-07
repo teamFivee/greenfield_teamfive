@@ -6,7 +6,7 @@ class Main extends React.Component {
 
     componentDidMount()
     {
-       axios.get("http://localhost:5000/hello").then(data => {
+       axios.get("http://localhost:5000/db").then(data => {
            console.log(data)
        }).catch(err=>{
            console.log(err)

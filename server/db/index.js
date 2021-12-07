@@ -4,16 +4,12 @@ const Promise = require('bluebird');
 const database = 'greenfield';
 
 const connection = mysql.createConnection({
+  host: 'localhost',
   user: 'root',
-  password: 'root'
+  password: 'root',
+  database: database
+
 });
 
-const db = Promise.promisifyAll(connection, { multiArgs: true });
 
-db.connectAsync()
-  .then(() => console.log(`Connected to ${database} database as ID ${db.threadId}`))
-  .then(() => db.queryAsync(`CREATE DATABASE IF NOT EXISTS ${database}`))
-  .then(() => db.queryAsync(`USE ${database}`))
-  .then(() => createTables(db));
-
-module.exports = db;
+module.exports = connection;
